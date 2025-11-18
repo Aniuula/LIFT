@@ -129,12 +129,11 @@ train_loader = DataLoader(
 1. **Phase 1 (Epochs 0-10)**: 
    - Freeze encoder weights (use pretrained RIFE)
    - Train transformer and flow modules
-   - Resolution: 224x224
 
 2. **Phase 2 (Epochs 10+)**:
    - Unfreeze encoder for fine-tuning
    - Train end-to-end
-   - Resolution: 256x256 or 256x448
+   - Resolution: 256x256 or 256x448 (Vimeo90K)
 
 ## Usage
 
@@ -154,12 +153,3 @@ python inference.py --input video.mp4 --output output/ --checkpoint weights.pth
 - OpenCV (cv2)
 - NumPy
 - TensorBoard (for logging)
-
-## Notes
-
-- This implementation focuses on memory efficiency for research purposes
-- 64-frame context provides significant quality improvements over 2-frame methods
-- Suitable for both academic research and practical applications
-
-
-
