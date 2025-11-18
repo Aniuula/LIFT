@@ -12,12 +12,12 @@
 
 **Rozmiary:**  
 - **Triplet:** 73 171 sekwencji 3-klatkowych, rozdzielczość **448×256**  
-  - łączny rozmiar (train + test): **~33 GB**
+  - łączny rozmiar (train + test): **33 GB**
 - **Septuplet:** 91 701 sekwencji 7-klatkowych, rozdzielczość **448×256**  
-  - łączny rozmiar (train + test): **~82 GB**
+  - łączny rozmiar (train + test): **82 GB**
 
 **Pochodzenie:**  
-👉 http://toflow.csail.mit.edu/
+http://toflow.csail.mit.edu/
 
 ---
 
@@ -31,11 +31,11 @@ Wykorzystany do oceny wydajności modelu przy:
 - sekwencje klatek jako obrazy **PNG**
 
 **Rozdzielczości:**  
-- **X-TEST:** 4096×2160 (4K)  
-- **X-TRAIN:** 768×768 (crop z 4K)
+- **X-TEST:** 4096×2160 
+- **X-TRAIN:** 768×768 
 
 **Pochodzenie:**  
-👉 https://www.dropbox.com/sh/duisote638etlv2/AABJw5Vygk94AWjGM4Se0Goza?dl=0
+https://www.dropbox.com/sh/duisote638etlv2/AABJw5Vygk94AWjGM4Se0Goza?dl=0
 
 ---
 
@@ -50,7 +50,7 @@ Wykorzystany do oceny wydajności modelu przy:
 - łącznie około **27 godzin wideo**
 
 **Pochodzenie:**  
-👉 https://www.crcv.ucf.edu/data/UCF101.php
+https://www.crcv.ucf.edu/data/UCF101.php
 ## Prawa i licencje
 ### **Vimeo-90K**
 
@@ -116,7 +116,6 @@ Projekt korzysta z trzech lokalizacji danych:
 ### **Kod źródłowy**
 - Przechowywany w publicznym repozytorium GitHub  
 - Repo zawiera: kod, konfiguracje, dokumentację  
- 
 
 ### **Dane treningowe**
 - Przechowywane lokalnie lub na zewnętrznych dyskach 
@@ -150,3 +149,4 @@ Po upublicznieniu repozytorium zalecany format cytowania:
   title         = {LIFT: Long-range Interpolation with Far Temporal Context},
   year          = {2025},
   howpublished  = {\url{https://github.com/<Aniuula>/LIFT}}
+
