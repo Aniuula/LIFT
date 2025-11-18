@@ -6,7 +6,7 @@ Implementation of LIFT video frame interpolation model with 64-frame temporal co
 
 ```
 LIFT/
-├── model/               # Model components
+├── model/              # Model components
 │   ├── encoder.py      # Stage 1: Feature extraction from 64 frames
 │   ├── transformer.py  # Stage 2: Temporal aggregation with windowed attention
 │   ├── ifnet.py       # Stage 3: Multi-scale flow estimation
@@ -16,11 +16,11 @@ LIFT/
 │   ├── loss.py        # Loss functions
 │   └── lift.py        # Main LIFT model
 │
-├── dataset/            # Data pipeline
+├── dataset/           # Data pipeline
 │   ├── vimeo_64.py    # 64-frame sequence dataset
 │   └── __init__.py
 │
-├── utils/              # Utilities
+├── utils/             # Utilities
 │   ├── flow_viz.py    # Flow visualization
 │   └── __init__.py
 │
@@ -29,7 +29,7 @@ LIFT/
 │
 ├── train.py           # Training script
 ├── inference.py       # Inference script
-└── README.md          # This file
+└── README.md          
 ```
 
 ## Data Pipeline Design
@@ -160,5 +160,6 @@ python inference.py --input video.mp4 --output output/ --checkpoint weights.pth
 - This implementation focuses on memory efficiency for research purposes
 - 64-frame context provides significant quality improvements over 2-frame methods
 - Suitable for both academic research and practical applications
+
 
 
