@@ -45,7 +45,7 @@ The key challenge is handling 64 frames efficiently. Our approach:
 
 ### Dataset Classes
 
-#### Vimeo64Dataset
+#### Vimeo Dataset
 - Loads 64 consecutive frames from image sequences
 - Supports directory structures:
   - Vimeo-style: `sequences/category/sequence_id/im*.png`
@@ -160,4 +160,5 @@ python inference.py --input video.mp4 --output output/ --checkpoint weights.pth
 - This implementation focuses on memory efficiency for research purposes
 - 64-frame context provides significant quality improvements over 2-frame methods
 - Suitable for both academic research and practical applications
-## Data Managment 
+
+
