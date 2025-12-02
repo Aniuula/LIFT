@@ -9,8 +9,6 @@ LIFT rozwija ideę modeli interpolacji z rodziny RIFE (Real-Time Intermediate Fl
 - rozszerzony kontekst temporalny zwiększający stabilność interpolacji w scenach z szybkim ruchem lub dużą zmianą perspektywy,
 - ulepszony moduł przepływów optycznych oparty na bazowych założeniach RIFE.
 
-
-
 LIFT czerpie swoją podstawę teoretyczną oraz inspirację bezpośrednio z prac autorów RIFE:
 
 RIFE: Real-Time Intermediate Flow Estimation for Video Frame Interpolation
@@ -20,6 +18,26 @@ ECCV2022-RIFE – oficjalne repozytorium
 https://github.com/hzwer/ECCV2022-RIFE
 
 Model przedstawiony w tym repozytorium stanowi rozszerzenie i rozwinięcie powyższych metod, ukierunkowane na obsługę sekwencji wieloklatkowych oraz interpolację w scenach o złożonej dynamice.
+
+## PICO i hipotezy badawcze
+
+**P** (Population) - Badanym zbiorem danych są referencyjne materiały video z datasetu Vimeo90K dla mniejszej liczby klatek oraz wyekstrachowane klatki z wideo datasetu UCF101.
+
+**I** (Intervention) - Metoda interpolacji klatek video wykorzystująca szeroki kontekst czasowy (16 klatek), będąca modyfikacją architektury RIFE.
+
+**C** (Comparison) - Wyniki będą porównywane do oryginalnych materiałów (braku interpolacji), interpolacji 4- i 8-klatkowej oraz rezultatów uzyskanych z oryginalnego modelu RIFE.
+
+**O** (Outcome) - Metryki wykorzystane do oceny działania modelu:
+- PSNR (Peak Signal-to-Noise Ratio), SSIM (Structural Similarity Index Measure), LPIPS (Learned Perceptual Image Patch Similarity),
+- ocena przepływu optycznego.
+
+**H0:**  
+Przesunięcie czasowe w interpolacji klatek pośrednich nie ma pozytywnego wpływu na metryki oceny.
+
+**H1:**  
+Przesunięcie czasowe w interpolacji klatek pośrednich wpływa na poprawę metryk oceny.
+
+
 ## Przegląd
 
 Skrypt `train.py` implementuje kompletny pipeline treningowy obejmujący ładowanie danych, konfigurację eksperymentów, trening z mixed precision oraz szczegółowe logowanie metryk i wizualizacji.
@@ -111,4 +129,5 @@ python train.py \
 │   └── visualization.py
 └── logs/                 # Logi TensorBoard
 ```
+
 
