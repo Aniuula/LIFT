@@ -2,6 +2,24 @@
 
 Moduł treningowy dla modelu **LIFT** (Long-range Interpolation with Far Temporal context) - sieci neuronowej do interpolacji klatek wideo wykorzystującej rozszerzony kontekst czasowy.
 
+LIFT rozwija ideę modeli interpolacji z rodziny RIFE (Real-Time Intermediate Flow Estimation), integrując je z nową architekturą przetwarzania długich sekwencji i ulepszonym pipeline’em treningowym. W porównaniu do oryginalnego RIFE model LIFT wprowadza m.in.:
+
+- obsługę wielu klatek wejściowych oraz referencyjnych (nie tylko dwóch sąsiednich),
+- mechanizmy agregacji i fuzji informacji z odległych klatek,
+- rozszerzony kontekst temporalny zwiększający stabilność interpolacji w scenach z szybkim ruchem lub dużą zmianą perspektywy,
+- ulepszony moduł przepływów optycznych oparty na bazowych założeniach RIFE.
+
+
+
+LIFT czerpie swoją podstawę teoretyczną oraz inspirację bezpośrednio z prac autorów RIFE:
+
+RIFE: Real-Time Intermediate Flow Estimation for Video Frame Interpolation
+https://arxiv.org/abs/2011.06294
+
+ECCV2022-RIFE – oficjalne repozytorium
+https://github.com/hzwer/ECCV2022-RIFE
+
+Model przedstawiony w tym repozytorium stanowi rozszerzenie i rozwinięcie powyższych metod, ukierunkowane na obsługę sekwencji wieloklatkowych oraz interpolację w scenach o złożonej dynamice.
 ## Przegląd
 
 Skrypt `train.py` implementuje kompletny pipeline treningowy obejmujący ładowanie danych, konfigurację eksperymentów, trening z mixed precision oraz szczegółowe logowanie metryk i wizualizacji.
@@ -19,11 +37,12 @@ Datasety UCF-101 i X4K1000FPS dziedziczą po `BaseVideoDataset` (base_video), kt
 
 ### Obsługiwane datasety
 
-| Dataset | Klasa | Opis |
-|---------|-------|------|
-| Vimeo-15 | `Vimeo15Dataset` (vimeo90k) | Sekwencje 7-klatkowe |
-| UCF-101 | `UCF101Dataset` (ucf101) | Akcje ludzkie |
-| X4K1000FPS | `X4K1000FPSDataset` (x4k1000fps) | Wysokorozdzielcze sekwencje 4K |
+| Dataset | Klasa | Opis | Link |
+|---------|-------|------|------|
+| Vimeo-15 | `Vimeo15Dataset` (vimeo90k) | Sekwencje 7-klatkowe | [Vimeo-90K](http://toflow.csail.mit.edu) |
+| UCF-101 | `UCF101Dataset` (ucf101) | Akcje ludzkie | [UCF101](https://www.crcv.ucf.edu/data/UCF101.php) |
+| X4K1000FPS | `X4K1000FPSDataset` (x4k1000fps) | Wysokorozdzielcze sekwencje 4K | [4K1000FPS Dataset](https://www.dropbox.com/scl/fo/88aarlg0v72dm8kvvwppe/AHxNqDye4_VMfqACzZNy5rU?rlkey=a2hgw60sv5prq3uaep2metxcn&e=2&dl=0) |
+
 
 Wybór datasetu odbywa się dynamicznie poprzez fabrykę `get_dataset_class()`.
 
@@ -92,3 +111,4 @@ python train.py \
 │   └── visualization.py
 └── logs/                 # Logi TensorBoard
 ```
+
