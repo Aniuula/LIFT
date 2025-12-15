@@ -21,11 +21,10 @@ Model przedstawiony w tym repozytorium stanowi rozszerzenie i rozwinięcie powy�
 
 ## PICO i hipotezy badawcze
 
-**P** (Population) - Badanym zbiorem danych są referencyjne materiały video z datasetu Vimeo90K dla mniejszej liczby klatek oraz wyekstrachowane klatki z wideo datasetu UCF101.
+**P** (Population) - Badanym zbiorem danych są referencyjne materiały video z datasetu UCF101.
+**I** (Intervention) - Metoda interpolacji klatek video wykorzystująca szeroki kontekst czasowy (15 klatek), będąca modyfikacją architektury RIFE.
 
-**I** (Intervention) - Metoda interpolacji klatek video wykorzystująca szeroki kontekst czasowy (16 klatek), będąca modyfikacją architektury RIFE.
-
-**C** (Comparison) - Wyniki będą porównywane do oryginalnych materiałów (braku interpolacji), interpolacji 4- i 8-klatkowej oraz rezultatów uzyskanych z oryginalnego modelu RIFE.
+**C** (Comparison) - Wyniki będą porównywane do oryginalnych materiałów (braku interpolacji) i klatek wyinterpolowanych na podstawie 3 klatek wejściowych.
 
 **O** (Outcome) - Metryki wykorzystane do oceny działania modelu:
 - PSNR (Peak Signal-to-Noise Ratio), SSIM (Structural Similarity Index Measure), LPIPS (Learned Perceptual Image Patch Similarity),
@@ -129,5 +128,6 @@ python train.py \
 │   └── visualization.py
 └── logs/                 # Logi TensorBoard
 ```
+
 
 
